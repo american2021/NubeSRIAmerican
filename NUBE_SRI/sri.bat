@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk1.7.0_13\bin\java" -jar dist\FacturacionElectronica.jar %~1 %~2 %~3 %~4

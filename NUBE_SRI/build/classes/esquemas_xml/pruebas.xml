@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><notaCredito id="comprobante" version="1.0.0">  
+    <infoTributaria>    
+        <ambiente>2</ambiente>    
+        <tipoEmision>1</tipoEmision>    
+        <razonSocial>AIG METROPOLITANA CIA. DE SEGUROS Y REASEGUROS S.A.</razonSocial>    
+        <nombreComercial>AIG Metropolitana</nombreComercial>    
+        <ruc>1790475247001</ruc>    
+        <claveAcceso>3010201904179047524700120010060008571050085710513</claveAcceso>    
+        <codDoc>04</codDoc>    
+        <estab>001</estab>    
+        <ptoEmi>006</ptoEmi>    
+        <secuencial>000857105</secuencial>    
+        <dirMatriz>QUITO BRASIL 293 Y ANTONIO GRANDA CENTENO</dirMatriz>  
+    </infoTributaria>  
+    <infoNotaCredito>    
+        <fechaEmision>30/10/2019</fechaEmision>    
+        <dirEstablecimiento>GUAYAQUIL:Parque Empresarial Colón Edif. Corp II 2piso Of.203 CUENCA:AV. ORDOÑEZ LASSO 5-42 Y LAURELES</dirEstablecimiento>    
+        <tipoIdentificacionComprador>05</tipoIdentificacionComprador>    
+        <razonSocialComprador>LEON HERAS JAIME ALEJANDRO</razonSocialComprador>    
+        <identificacionComprador>0104874086</identificacionComprador>    
+        <contribuyenteEspecial>5368</contribuyenteEspecial>    
+        <obligadoContabilidad>SI</obligadoContabilidad>    
+        <codDocModificado>01</codDocModificado>    
+        <numDocModificado>001-006-016908801</numDocModificado>    
+        <fechaEmisionDocSustento>22/10/2019</fechaEmisionDocSustento>    
+        <totalSinImpuestos>2.98</totalSinImpuestos>    
+        <valorModificacion>2.98</valorModificacion>    
+        <moneda>DOLAR</moneda>    
+        <totalConImpuestos>      
+            <totalImpuesto>        
+                <codigo>2</codigo>        
+                <codigoPorcentaje>0</codigoPorcentaje>        
+                <baseImponible>2.98</baseImponible>        
+                <valor>0.00</valor>      
+            </totalImpuesto>    
+        </totalConImpuestos>    
+        <motivo>AFECTACION FACTURA</motivo>  
+    </infoNotaCredito>  
+    <detalles>    
+        <detalle>      
+            <codigoInterno>1203321</codigoInterno>      
+            <codigoAdicional>52133</codigoAdicional>      
+            <descripcion>50308 - PLAN DEUDA PROTEGIDA</descripcion>      
+            <cantidad>1.00</cantidad>      
+            <precioUnitario>2.87</precioUnitario>      
+            <descuento>0.00</descuento>      
+            <precioTotalSinImpuesto>2.87</precioTotalSinImpuesto>      
+            <detallesAdicionales>        
+                <detAdicional nombre="Sucursal" valor="QUITO"/>        
+                <detAdicional nombre="Ramo" valor="VIDA COLECTIVO"/>        
+                <detAdicional nombre="NroPoliza" valor="50308"/>      
+            </detallesAdicionales>      
+            <impuestos>        
+                <impuesto>          
+                    <codigo>2</codigo>          
+                    <codigoPorcentaje>0</codigoPorcentaje>          
+                    <tarifa>0</tarifa>          
+                    <baseImponible>2.87</baseImponible>          
+                    <valor>0.00</valor>        
+                </impuesto>      
+            </impuestos>    
+        </detalle>    
+        <detalle>      
+            <codigoInterno>0</codigoInterno>      
+            <codigoAdicional>0</codigoAdicional>      
+            <descripcion>SUPER DE BANCOS</descripcion>      
+            <cantidad>1.00</cantidad>      
+            <precioUnitario>0.10</precioUnitario>      
+            <descuento>0.00</descuento>      
+            <precioTotalSinImpuesto>0.10</precioTotalSinImpuesto>      
+            <impuestos>        
+                <impuesto>          
+                    <codigo>2</codigo>          
+                    <codigoPorcentaje>0</codigoPorcentaje>          
+                    <tarifa>0</tarifa>          
+                    <baseImponible>0.10</baseImponible>          
+                    <valor>0.00</valor>        
+                </impuesto>      
+            </impuestos>    
+        </detalle>    
+        <detalle>      
+            <codigoInterno>1</codigoInterno>      
+            <codigoAdicional>0</codigoAdicional>      
+            <descripcion>SEGURO CAMPESINO</descripcion>      
+            <cantidad>1.00</cantidad>      
+            <precioUnitario>0.01</precioUnitario>      
+            <descuento>0.00</descuento>      
+            <precioTotalSinImpuesto>0.01</precioTotalSinImpuesto>      
+            <impuestos>        
+                <impuesto>          
+                    <codigo>2</codigo>          
+                    <codigoPorcentaje>0</codigoPorcentaje>          
+                    <tarifa>0</tarifa>          
+                    <baseImponible>0.01</baseImponible>          
+                    <valor>0.00</valor>        
+                </impuesto>      
+            </impuestos>    
+        </detalle>  
+    </detalles>  
+    <infoAdicional>    
+        <campoAdicional nombre="CodInternoSAP">18193839</campoAdicional>    
+        <campoAdicional nombre="CodSociedad">1078</campoAdicional>    
+        <campoAdicional nombre="DetInfoAdic">VIDA COLECTIVO</campoAdicional>    
+        <campoAdicional nombre="DetInfoAdic1">Suma Asegurada: 25000.00</campoAdicional>    
+        <campoAdicional nombre="DetInfoAdic2">Vigencia: 2019.10.01 AL 2019.10.31</campoAdicional>    
+        <campoAdicional nombre="DetInfoAdic11">AFECTACION FACTURA</campoAdicional>    
+        <campoAdicional nombre="emailCliente">Ecuador.GestionFacturas@aig.com</campoAdicional>  
+    </infoAdicional>
+    
+</notaCredito>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="factura_detalle" pageWidth="538" pageHeight="425" columnWidth="538" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="2ca74a5c-691a-4e4d-9c16-abba93feba60">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="TIENDA"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numero" class="java.lang.String">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     PRODUCTO."PRO_CODIGO" AS CODIGO,
+     ESTILO."EST_DESCRIPCION"||' '||TALLA."TAL_DESCRIPCION"||' '||COLOR."COL_DESCRIPCION" AS DESCRIPCION,
+     DETALLE."DET_CANTIDAD" AS CANTIDAD,
+     DETALLE."DET_PRECIO" AS VALOR,
+     DETALLE."DET_DESCUENTO" AS DESCUENTO,
+     DETALLE."DET_SUBTOTAL" AS SUBTOTAL
+FROM
+     "MUSEO"."ESTILO" ESTILO INNER JOIN "MUSEO"."DETALLE" DETALLE ON ESTILO."EST_CODIGO" = DETALLE."EST_CODIGO"
+     INNER JOIN "MUSEO"."FACTURA" FACTURA ON DETALLE."FAC_NUMERO" = FACTURA."FAC_NUMERO"
+     INNER JOIN "MUSEO"."PRODUCTO" PRODUCTO ON DETALLE."PRO_CODIGO" = PRODUCTO."PRO_CODIGO"
+     INNER JOIN "MUSEO"."TALLA" TALLA ON DETALLE."TAL_CODIGO" = TALLA."TAL_CODIGO"
+     INNER JOIN "MUSEO"."COLOR" COLOR ON DETALLE."COL_CODIGO" = COLOR."COL_CODIGO"
+WHERE FACTURA.FAC_SECUENCIA=$P{numero}]]>
+	</queryString>
+	<field name="CODIGO" class="java.math.BigDecimal"/>
+	<field name="DESCRIPCION" class="java.lang.String"/>
+	<field name="CANTIDAD" class="java.math.BigDecimal"/>
+	<field name="VALOR" class="java.math.BigDecimal"/>
+	<field name="DESCUENTO" class="java.math.BigDecimal"/>
+	<field name="SUBTOTAL" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="1bfa0c41-81fb-46d5-b0cd-7b39ad3a2500" x="92" y="2" width="219" height="20"/>
+				<textElement/>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f67fa7c1-389e-427a-a213-235a53a8317f" x="50" y="2" width="39" height="20"/>
+				<textElement/>
+				<text><![CDATA[CANT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ea278507-ac78-4c69-a4c8-96c7ee7b1dac" x="316" y="2" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="df4aa45a-86b4-4790-a49f-40bf0c987330" x="391" y="2" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[DESCUENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5f8fa15d-ab2d-4009-84a5-68d1dd6d7384" x="468" y="2" width="70" height="20"/>
+				<textElement/>
+				<text><![CDATA[SUBTOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="81c605cb-970a-45ec-95b8-04fa0dee6f01" x="2" y="2" width="45" height="20"/>
+				<textElement/>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e6c5b4f0-fe1e-441f-b140-f4dcfcb7733f" x="1" y="23" width="535" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement uuid="74d8aa60-19d6-4afa-8a90-0a6624891512" x="92" y="2" width="219" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{DESCRIPCION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="08fa0af0-5460-477a-b7ad-3050c637c04a" x="50" y="2" width="39" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CANTIDAD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="542f7413-c7c4-4706-8f26-67537e940774" x="316" y="2" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{VALOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4eddbf3c-543b-43bc-b96a-a3693f3f33ec" x="391" y="2" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{DESCUENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f1b748a7-1992-47ad-851d-c48df9fc643a" x="468" y="2" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{SUBTOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="105ac764-df63-4476-85c3-5890f2719768" x="2" y="2" width="45" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{CODIGO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
