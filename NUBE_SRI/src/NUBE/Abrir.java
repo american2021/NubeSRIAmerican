@@ -154,8 +154,9 @@ public class Abrir extends javax.swing.JFrame {
         String claveFirma = dcons.consUnDato(query);
         if(claveFirma!=null){
             if(claveFirma.length()>0){
-                NUBE_ELECTRONICA_AMERICAN nube = new NUBE_ELECTRONICA_AMERICAN(elegido.getBodega(), elegido.getNombre(), claveFirma, elegido.getBaseVF(), elegido.getBaseGE(), elegido.getTipo());
+                NUBE_ELECTRONICA_AMERICAN nube = new NUBE_ELECTRONICA_AMERICAN(elegido.getBodega(), elegido.getNombre(), claveFirma, elegido.getBaseVF(), elegido.getBaseGE(), elegido.getTipo(),elegido.getUsuario());
                 this.dispose();
+                System.out.println("elegido es "+ elegido.getNombre());
                 nube.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(this, "Error en las credenciales.");

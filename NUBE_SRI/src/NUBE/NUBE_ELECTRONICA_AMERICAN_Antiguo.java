@@ -230,7 +230,7 @@ public class NUBE_ELECTRONICA_AMERICAN_Antiguo extends javax.swing.JFrame {
                     }
                     
                     generarPDF pdf = new generarPDF();
-                    pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa);        
+                    //pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa,);        
                     Thread.currentThread();
                     try {
                         Thread.sleep(2000L);
@@ -551,7 +551,7 @@ public class NUBE_ELECTRONICA_AMERICAN_Antiguo extends javax.swing.JFrame {
                 } catch (InterruptedException ex) {
                     Logger.getLogger(NUBE_ELECTRONICA_AMERICAN_Antiguo.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa);
+                //pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa);
                 
                 Thread.currentThread();
                 try {
@@ -1110,7 +1110,7 @@ public class NUBE_ELECTRONICA_AMERICAN_Antiguo extends javax.swing.JFrame {
                 if(temp!=null){
                     String clave = temp.toString();
                     generarPDF pdf = new generarPDF();
-                    pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa);
+                    //pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa);
                     
                 }
                 

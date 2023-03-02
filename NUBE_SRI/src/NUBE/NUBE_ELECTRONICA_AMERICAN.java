@@ -70,6 +70,7 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
     String numFac = "";
     String tipDoc = "";
     int bodega = 0;
+    String ruc ="";
     String IECabTipo = "";
     int ambiente=2;
     public Component ventana = this;
@@ -96,7 +97,7 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
 //        tabla.getColumnModel().getColumn(c).setMinWidth(d);
         tabla.getColumnModel().getColumn(c).setPreferredWidth(d);
     }
-    public NUBE_ELECTRONICA_AMERICAN(int bodega, String empresa, String claveFirma, String baseVF, String baseGE, String IECabTipo) {
+    public NUBE_ELECTRONICA_AMERICAN(int bodega, String empresa, String claveFirma, String baseVF, String baseGE, String IECabTipo,String ruc) {
         initComponents();
         this.empresa = empresa;
         this.baseVF = baseVF;
@@ -104,6 +105,7 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
         this.claveFirma = claveFirma;
         this.IECabTipo = IECabTipo;
         this.bodega = bodega;
+        this.ruc = ruc;
         
         Calendar c2 = new GregorianCalendar();
         jcdDesde.setCalendar(c2);
@@ -205,9 +207,9 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
             numFac=numFac.replace(".","");
             numFac=numFac.replaceAll("\\s","");
             tipDoc = tabla.getValueAt(i, 1).toString();
-            f = new File(url+"\\"+this.empresa+"\\AUTORIZADOS\\RIDE\\"+clave+".pdf");
+            f = new File(url+this.empresa+"\\AUTORIZADOS\\RIDE\\"+clave+".pdf");
             System.out.println("e------------- "+f);
-            System.out.println(url+"\\"+this.empresa+"\\AUTORIZADOS\\RIDE\\"+clave+".pdf");
+            System.out.println(url+this.empresa+"\\AUTORIZADOS\\RIDE\\"+clave+".pdf");
             if (tabla.getValueAt(i, 10).toString().equalsIgnoreCase("ok") && (!tabla.getValueAt(i, 12).toString().equalsIgnoreCase("ok") || !f.exists())){
                    
                 System.out.println("No existe el archivo");
@@ -230,17 +232,17 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
                 
                     Thread.currentThread();
                     try {
-                        Thread.sleep(1000L);
+                        Thread.sleep(3000L);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(NUBE_ELECTRONICA_AMERICAN.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     System.out.println("Inicio generación");
                     generarPDF pdf = new generarPDF();
-                    pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa);        
+                    pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa,ruc);        
                     System.out.println("Finalizo Generacion");
                     Thread.currentThread();
                     try {
-                        Thread.sleep(2000L);
+                        Thread.sleep(8000L);
                     } catch (InterruptedException ex) {
                         Logger.getLogger(NUBE_ELECTRONICA_AMERICAN.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -405,6 +407,8 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
         if(m_gen!=null)
         if(m_gen.length != m_gen1.length){
             System.out.println("corre:"+m_gen[0]);
+            System.out.println("elegido es "+ this.empresa);
+            System.out.println("el ruc es "+ this.ruc);
             m_gen1 = m_gen;
             
             File f_fir = new File(url+empresa+"\\FIRMADOS");
@@ -562,11 +566,11 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
                 } catch (InterruptedException ex) {
                     Logger.getLogger(NUBE_ELECTRONICA_AMERICAN.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa);
+                pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa,ruc);
                 
                 Thread.currentThread();
                 try {
-                    Thread.sleep(2000L);
+                    Thread.sleep(5000L);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(NUBE_ELECTRONICA_AMERICAN.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -1121,7 +1125,7 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
                 if(temp!=null){
                     String clave = temp.toString();
                     generarPDF pdf = new generarPDF();
-                    pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa);
+                    pdf.generar(clave, url+empresa, baseVF, baseGE, numFac, tipDoc, url, pathWeb, empresa, ruc);
                     
                 }
                 
@@ -1264,7 +1268,7 @@ public class NUBE_ELECTRONICA_AMERICAN extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new NUBE_ELECTRONICA_AMERICAN(1,"","","","","").setVisible(true);
+                new NUBE_ELECTRONICA_AMERICAN(1,"","","","","","").setVisible(true);
             }
         });
     }
