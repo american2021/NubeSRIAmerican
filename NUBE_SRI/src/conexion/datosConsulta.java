@@ -221,6 +221,8 @@ public class datosConsulta {
         }
         return l;
     }
+    
+    
     public List<List<String>> buscador(String query, int cols){
         conexion con=null;
         Connection conn=null;
@@ -248,6 +250,9 @@ public class datosConsulta {
         }
         return l;
     }
+    
+    
+    
     public List<List<String>> busquedaConCol(String query, List<String> colum){
         conexion con=null;
         Connection conn=null;

@@ -33,7 +33,7 @@ public class enviarCorreo {
                     props.setProperty("mail.smtp.starttls.enable", "true");
                     props.setProperty("mail.smtp.port", "587");
                     props.setProperty("mail.smtp.user", "facturascoradac@gmail.com");
-                    props.put("mail.smtp.clave", "bexwnkhwmvaorlpu");
+                    props.put("mail.smtp.clave", "auidsrkntrlzyulg");
                     props.setProperty("mail.smtp.auth", "true");
 
                     Session session = Session.getDefaultInstance(props, null);
@@ -71,7 +71,7 @@ public class enviarCorreo {
 
                     // Se envia el correo.
                     Transport t = session.getTransport("smtp");
-                    t.connect("facturascoradac@gmail.com", "bexwnkhwmvaorlpu");
+                    t.connect("facturascoradac@gmail.com", "auidsrkntrlzyulg");
                     t.sendMessage(message, message.getAllRecipients());
                     t.close();
                     System.out.println("enviado al correo");
