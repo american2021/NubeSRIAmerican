@@ -69,21 +69,21 @@ public class generarPDF {
                     + "AND B.TIPECODIGO = D.TIPECODIGO AND B.PERCODIGO = D.PERCODIGO AND A.IECABNUMERO = " + num + " AND A.TRINVTIPO = '" + tip + "'";*/
             
             String query = "SELECT LEFT(FECHAAUTORIZACION,10)+','+SUBSTRING(FECHAAUTORIZACION,12,8),NUMEROAUTORIZACION," +
-                            "CASE WHEN PERFACTURAR='O' THEN (SELECT REPDIRECCION FROM geVA..REPRESENTANTES E\n" +
+                            "CASE WHEN PERFACTURAR='O' THEN (SELECT REPDIRECCION FROM " + ge + "..REPRESENTANTES E\n" +
                             "WHERE B.TIPECODIGO = E.TIPECODIGO AND B.PERCODIGO = E.PERCODIGO)" +
                             "ELSE PERDIRECCION END " +
                             "PERDIRECCION,CFDIMPONIBLE,CFDNOIMPONIBLE,CONVERT(NUMERIC(5,2),0) NOOBJETOIVA,CONVERT(NUMERIC(5,2),0) EXENTODEIVA," +
                             "CFDIMPONIBLE+CFDNOIMPONIBLE SUBTOTAL,CFDDESIMPONIBLE+CFDDESNOIMPONIBLE DESCUENTO,\n" +
                             "CONVERT(NUMERIC(5,2),0) ICE,CFDIMPUESTO,CONVERT(NUMERIC(5,2),0) IRBPRN,CONVERT(NUMERIC(5,2),0) PROPINA,IECABTOTAL," +
-                            "(SELECT PROFCODIGO FROM geVA..PERSONAS WHERE TIPECODIGO = 'A' AND CedulaRuc = '"+ruc+"')," +
-                            "(SELECT PEROBSERVACION FROM geVA..PERSONAS WHERE TIPECODIGO = 'A' AND CedulaRuc = '"+ruc+"')," +
-                            "(SELECT ECCODIGO FROM geVA..PERSONAS WHERE TIPECODIGO = 'A' AND CedulaRuc = '"+ruc+"')" +
-                            "FROM vfVA..RELACIONSRI A, vfVA..IECABECERA B, vfVA..CABFACTDEV C, geVA..PERSONAS D " +
+                            "(SELECT PROFCODIGO FROM " + ge + "..PERSONAS WHERE TIPECODIGO = 'A' AND CedulaRuc = '"+ruc+"')," +
+                            "(SELECT PEROBSERVACION FROM " + ge + "..PERSONAS WHERE TIPECODIGO = 'A' AND CedulaRuc = '"+ruc+"')," +
+                            "(SELECT ECCODIGO FROM " + ge + "..PERSONAS WHERE TIPECODIGO = 'A' AND CedulaRuc = '"+ruc+"')" +
+                            "FROM " + vf + "..RELACIONSRI A, " + vf + "..IECABECERA B, " + vf + "..CABFACTDEV C, " + ge + "..PERSONAS D " +
                             "WHERE A.BODCODIGO = B.BODCODIGO AND A.TRINVTIPO = B.TRINVTIPO " +
                             "AND A.IECABNUMERO = B.IECABNUMERO AND A.IECABTIPO = B.IECABTIPO " +
                             "AND B.BODCODIGO = C.BODCODIGO AND B.TRINVTIPO = C.TRINVTIPO " +
                             "AND B.IECABNUMERO = C.IECABNUMERO AND B.IECABTIPO = C.IECABTIPO " +
-                            "AND B.TIPECODIGO = D.TIPECODIGO AND B.PERCODIGO = D.PERCODIGO AND A.IECABNUMERO = 1 AND A.TRINVTIPO = 'VTA'";
+                            "AND B.TIPECODIGO = D.TIPECODIGO AND B.PERCODIGO = D.PERCODIGO AND A.IECABNUMERO = " + num + " AND A.TRINVTIPO = '" + tip + "'";
             System.out.println("------------------------");
             System.out.println(query);
             datosConsulta dcons = new datosConsulta();
@@ -115,6 +115,9 @@ public class generarPDF {
                 parametros.put("AMBIENTE", ambiente);
                 parametros.put("NOM_COMERCIAL", fcab.get(15));
                 parametros.put("SUB12", fcab.get(3));
+                System.out.println("-----------------------------");
+                System.out.println("iva 0: "+fcab.get(4));
+                System.out.println("-----------------------------");
                 parametros.put("SUB0", fcab.get(4));
                 parametros.put("SUB_NO", fcab.get(5));
                 parametros.put("SUB_EX", fcab.get(6));
